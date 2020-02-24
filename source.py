@@ -1,6 +1,7 @@
 listOfArticles = []
 dictOfAuthors = {}
 listOfAuthors = []
+checkList = []
 
 def initErdos():
 	for article in listOfArticles:
@@ -10,6 +11,9 @@ def initErdos():
 					dictOfAuthors[key] = 1
 				if (key in article) and (author in article) and dictOfAuthors[author] > 0 and author != "Erdos" and dictOfAuthors[key] == 0:
 					dictOfAuthors[key] = dictOfAuthors[author] + 1
+	for key in dictOfAuthors:
+		if dictOfAuthors[key] == 0:
+			dictOfAuthors[key] = 'infinity'
 	
 				
 
@@ -43,12 +47,14 @@ def main():
 	n = int(input("Input the number of scenarios: "))
 	for i in range(n):
 		articleInput(i+1)
-	p = int(input("Input the number of authors you want to check: "))
-	
 	initErdos()
-	print(listOfArticles)
+	p = int(input("Input the number of authors you want to check: "))
+	for _ in range(p):
+		checkList.append(input("Input the surname of author you want to check: "))
+	for author in checkList:
+		print(dictOfAuthors[author])	
 	print(dictOfAuthors)
-		
+	print(listOfAuthors)
 
 if __name__ == '__main__':
 	main()
