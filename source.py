@@ -14,9 +14,6 @@ def initErdos():
 	for key in dictOfAuthors:
 		if dictOfAuthors[key] == 0:
 			dictOfAuthors[key] = 'infinity'
-	
-				
-
 			
 def articleParser(listElement):
 	name = ""
@@ -32,8 +29,7 @@ def articleParser(listElement):
 				listOfAuthors.append(name)
 				name = ""
 			elif name in (dictOfAuthors and listOfAuthors):
-				name=""
-			
+				name=""		
 
 def articleInput(num):
 	print("Scenario ", num, end="\n")
@@ -47,14 +43,14 @@ def main():
 	n = int(input("Input the number of scenarios: "))
 	for i in range(n):
 		articleInput(i+1)
-	initErdos()
-	p = int(input("Input the number of authors you want to check: "))
-	for _ in range(p):
-		checkList.append(input("Input the surname of author you want to check: "))
-	for author in checkList:
-		print(dictOfAuthors[author])	
-	print(dictOfAuthors)
-	print(listOfAuthors)
+		initErdos()
+		p = int(input("Input the number of authors you want to check: "))
+		for _ in range(p):
+			checkList.append(input("Input the surname of author you want to check: "))
+		for author in checkList:
+			print(dictOfAuthors[author])	
+		print(dictOfAuthors)
+		print(listOfAuthors)
 
 if __name__ == '__main__':
 	main()
